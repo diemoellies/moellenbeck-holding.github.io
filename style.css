@@ -60,12 +60,15 @@ nav {
 }
 
 nav .logo {
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  color: var(--accent);
+  display: flex;
+  align-items: center;
   text-decoration: none;
+}
+
+nav .logo img {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 nav .nav-links {
