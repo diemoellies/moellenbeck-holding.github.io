@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>OG Banner</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap">
+  <style>
+    :root {
+      --bg: #08080a;
+      --text: #e8e8ed;
+      --text-muted: #6b6b76;
+      --accent: #60A5FA;
+      --accent-glow: rgba(96, 165, 250, 0.28);
+      --border: #222228;
+      --mono: 'DM Mono', monospace;
+      --display: 'Syne', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      position: relative;
+      background-image: radial-gradient(circle at 1px 1px, rgba(96, 165, 250, 0.05) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+    .glow {
+      position: absolute;
+      top: 50%;
+      right: -120px;
+      transform: translateY(-50%);
+      width: 720px;
+      height: 720px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .frame {
+      position: absolute;
+      inset: 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 18px;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .top .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+    .center {
+      max-width: 980px;
+    }
+    .tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      background: rgba(96, 165, 250, 0.10);
+      border: 1px solid rgba(96, 165, 250, 0.25);
+      padding: 6px 12px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    h1 {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 128px;
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+    }
+    h1 .accent {
+      display: block;
+      color: var(--accent);
+    }
+    .bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 16px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+    .bottom .left::before {
+      content: '// ';
+      color: var(--border);
+    }
+    .bottom .right {
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      margin-left: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="frame">
+    <div class="top">
+      <span class="dot"></span>
+      <span>MH_</span>
+      <span style="color: var(--border);">/</span>
+      <span style="color: var(--text-muted);">Holding Company</span>
+    </div>
+
+    <div class="center">
+      <span class="tag">UG (haftungsbeschränkt)</span>
+      <h1>moellenbeck<span class="accent">holding</span></h1>
+    </div>
+
+    <div class="bottom">
+      <span class="left">Gelsenkirchen</span>
+      <span class="right">moellenbeck-holding.de &rarr;</span>
+    </div>
+  </div>
+</body>
+</html>
