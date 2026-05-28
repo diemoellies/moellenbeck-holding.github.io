@@ -111,6 +111,7 @@ nav .nav-links a:hover::before {
   justify-content: center;
   padding: 6rem 2rem 4rem;
   position: relative;
+  overflow: hidden;
 }
 
 .hero-wrapper::before {
@@ -130,6 +131,7 @@ nav .nav-links a:hover::before {
 .hero {
   text-align: left;
   max-width: 720px;
+  width: 100%;
   position: relative;
   z-index: 1;
 }
@@ -153,7 +155,7 @@ nav .nav-links a:hover::before {
 .hero h1 {
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2rem, 8vw, 4.5rem);
   line-height: 1.05;
   letter-spacing: -0.03em;
   color: var(--text);
@@ -400,11 +402,11 @@ footer .separator {
 
 @media (max-width: 600px) {
   nav {
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1rem;
   }
 
   nav .nav-links {
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .hero-wrapper {
