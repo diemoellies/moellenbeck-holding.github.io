@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Das Design-System der moellenbeck-holding — Farben, Typografie, Motive und Bausteine.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#08080a">
+
+  <title>Design-System — moellenbeck-holding</title>
+  <link rel="icon" href="assets/favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/mh_favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ---- seitenspezifisch: Design-Showcase ---- */
+
+    .design-wrapper {
+      flex: 1;
+      padding: 7rem 2rem 4rem;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .design-hero { margin-bottom: 3rem; }
+
+    .design-hero .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(96, 165, 250, 0.25);
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease-out 0.2s both;
+    }
+
+    .design-hero h1 {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      animation: fadeUp 0.6s ease-out 0.35s both;
+    }
+
+    .design-hero h1 span { display: block; color: var(--accent); }
+
+    .design-hero .suffix {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease-out 0.5s both;
+    }
+
+    .design-hero .suffix::before { content: '// '; color: var(--border); }
+
+    .design-hero p.lead {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 0;
+      animation: fadeUp 0.6s ease-out 0.6s both;
+    }
+
+    .design-hero p.lead a { color: var(--accent); text-decoration: none; }
+    .design-hero p.lead a:hover { opacity: 0.7; }
+
+    /* Farbfelder */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin: 0.75rem 0;
+    }
+
+    .swatch {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--bg-card);
+    }
+
+    .swatch .chip { height: 48px; border-bottom: 1px solid var(--border); }
+
+    .swatch .meta { padding: 0.6rem 0.7rem; }
+
+    .swatch .meta .token {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--text);
+      letter-spacing: 0.03em;
+    }
+
+    .swatch .meta .value {
+      display: block;
+      font-size: 0.64rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.25rem;
+    }
+
+    .swatch .meta .desc {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Typo-Proben */
+    .type-sample {
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg-card);
+      margin: 0.75rem 0;
+    }
+
+    .type-sample .sample-display {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .type-sample .sample-mono {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .spec {
+      display: block;
+      font-size: 0.66rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-top: 0.5rem;
+    }
+
+    .spec::before { content: '// '; color: var(--border); }
+
+    /* Motiv-Demos */
+    .motif-demo {
+      font-size: 0.85rem;
+      color: var(--text);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.4rem !important;
+    }
+
+    .motif-demo .dim { color: var(--border); }
+    .motif-demo .hi  { color: var(--accent); }
+
+    .cursor-demo {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--accent);
+      margin-left: 4px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+
+    .status-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-right: 1.25rem;
+    }
+
+    .status-demo::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    .dotgrid-demo {
+      height: 72px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background-color: var(--bg);
+      background-image: radial-gradient(circle at 1.5px 1.5px, rgba(96, 165, 250, 0.35) 1.5px, transparent 0);
+      background-size: 24px 24px;
+      margin: 0.75rem 0 0.25rem;
+    }
+
+    .glow-demo {
+      position: relative;
+      height: 72px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg);
+      overflow: hidden;
+      margin: 0.75rem 0 0.25rem;
+    }
+
+    .glow-demo::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      opacity: 0.5;
+      animation: pulse 4s ease-in-out infinite alternate;
+    }
+
+    .tag-demo {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(96, 165, 250, 0.25);
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0.25rem 0;
+    }
+
+    .address-demo {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+      margin: 0.75rem 0 0.25rem;
+    }
+
+    code.inline {
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.1rem 0.4rem;
+      border-radius: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    .section a { color: var(--accent); text-decoration: none; }
+    .section a:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="index.html"><img src="assets/mh_variante1.svg" alt="MH_" height="28"></a>
+    <div class="nav-links">
+      <a href="#warum">Warum</a>
+      <a href="#farben">Farben</a>
+      <a href="#typografie">Typografie</a>
+      <a href="#motive">Motive</a>
+      <a href="#mehr">Mehr</a>
+    </div>
+  </nav>
+
+  <main class="design-wrapper">
+    <!-- HERO -->
+    <header class="design-hero">
+      <div class="tag">Design System</div>
+      <h1>Ein Look.<span>Ruhig gesetzt.</span></h1>
+      <div class="suffix">terminal-ästhetik, reduziert<span class="cursor-demo"></span></div>
+      <p class="lead">
+        Das Design-System der moellenbeck-holding: dunkler Grund, ein kühler
+        Sky-Blue-Akzent, durchgängig Monospace. Diese Seite zeigt live, woraus
+        der Look besteht — die verbindlichen Regeln stehen in der
+        <a href="https://moellenbeck-holding.de/DESIGN.md">DESIGN.md</a>.
+      </p>
+    </header>
+
+    <!-- WARUM -->
+    <div class="section" id="warum">
+      <h2>// 01 · Warum</h2>
+      <p>
+        Die Auftritte der Möllenbeck-Familie sollen auf den ersten Blick
+        zusammengehören — und trotzdem unterscheidbar sein. Das Design-System
+        legt die gemeinsame Basis fest und zieht die Grenzen:
+      </p>
+      <ul>
+        <li>Wiedererkennung: gleiches dunkles Fundament, gleiche Motive, gleiche Schrift-Logik wie bei Möllenbeck-Digital</li>
+        <li>Abgrenzung: Sky Blue gehört der Holding, Orange gehört Möllenbeck-Digital — nie mischen</li>
+        <li>Maschinenlesbar: die Regeln liegen als Markdown unter einer stabilen URL, Agenten laden sie als Kontext</li>
+      </ul>
+      <p>
+        Die Holding tritt bewusst reduzierter auf als ihre Beteiligungen:
+        weniger Elemente, nur zwei Schriften, keine großen Gesten.
+      </p>
+    </div>
+
+    <!-- FARBEN -->
+    <div class="section" id="farben">
+      <h2>// 02 · Farben</h2>
+      <p>
+        Acht Tokens, mehr nicht. Die Fläche bleibt zu ~95&nbsp;% Graustufen;
+        der Akzent markiert Interaktion und Hervorhebung — nie große Flächen.
+      </p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="chip" style="background:#08080a"></div>
+          <div class="meta">
+            <span class="token">--bg</span>
+            <span class="value">#08080a</span>
+            <span class="desc">Seitenhintergrund</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#111114"></div>
+          <div class="meta">
+            <span class="token">--bg-elevated</span>
+            <span class="value">#111114</span>
+            <span class="desc">Sections, Panels</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#16161a"></div>
+          <div class="meta">
+            <span class="token">--bg-card</span>
+            <span class="value">#16161a</span>
+            <span class="desc">Nested-Elemente</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#e8e8ed"></div>
+          <div class="meta">
+            <span class="token">--text</span>
+            <span class="value">#e8e8ed</span>
+            <span class="desc">Primärtext</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#6b6b76"></div>
+          <div class="meta">
+            <span class="token">--text-muted</span>
+            <span class="value">#6b6b76</span>
+            <span class="desc">Sekundärtext, Labels</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#60A5FA"></div>
+          <div class="meta">
+            <span class="token">--accent</span>
+            <span class="value">#60A5FA</span>
+            <span class="desc">Der einzige Akzent</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:rgba(96,165,250,0.10)"></div>
+          <div class="meta">
+            <span class="token">--accent-dim</span>
+            <span class="value">rgba(&hellip;,.10)</span>
+            <span class="desc">Tag-Flächen</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#222228"></div>
+          <div class="meta">
+            <span class="token">--border</span>
+            <span class="value">#222228</span>
+            <span class="desc">Rahmen und Linien</span>
+          </div>
+        </div>
+      </div>
+      <span class="spec">Sky Blue = Tailwind blue-400 · gewählt für WCAG-AAA-Lesbarkeit · kein Light Mode</span>
+    </div>
+
+    <!-- TYPOGRAFIE -->
+    <div class="section" id="typografie">
+      <h2>// 03 · Typografie</h2>
+      <p>
+        Nur zwei Schriften — das unterscheidet die Holding vom
+        Digital-Auftritt. Monospace ist hier Textschrift, nicht Dekoration:
+      </p>
+      <div class="type-sample">
+        <div class="sample-display">Syne 800</div>
+        <span class="spec">nur für Überschriften · letter-spacing -0.03em · line-height 1.05</span>
+      </div>
+      <div class="type-sample">
+        <p class="sample-mono">DM Mono 300 für alles andere — auch diesen Fließtext. Großzügige Zeilenhöhe, positives Letter-Spacing, ruhiger Rhythmus wie in einem gut gesetzten Terminal.</p>
+        <span class="spec">line-height 1.7&ndash;1.8 · 0.8&ndash;0.85rem · Labels 400&ndash;500 uppercase</span>
+      </div>
+      <ul>
+        <li>Syne nie im Fließtext, DM Mono nie für Headlines</li>
+        <li>Keine dritte Schrift — insbesondere kein Sans für Fließtext</li>
+        <li>Headlines dürfen eine Zeile in <code class="inline">--accent</code> hervorheben</li>
+      </ul>
+    </div>
+
+    <!-- MOTIVE -->
+    <div class="section" id="motive">
+      <h2>// 04 · Signatur-Motive</h2>
+      <p>ASCII statt Icons — diese Details tragen den Familien-Look:</p>
+      <p class="motif-demo"><span class="hi">&gt;</span> Listenpunkte und Nav-Links mit Prompt-Zeichen</p>
+      <p class="motif-demo"><span class="dim">//</span> Sublines im Kommentar-Stil</p>
+      <p class="motif-demo">Zurück-Links mit Pfeil <span class="hi">&lt;-</span> &nbsp;·&nbsp; blinkender Cursor<span class="cursor-demo"></span></p>
+      <div class="address-demo">2px-Akzentbalken links an Adress- und Zitatblöcken</div>
+      <div class="dotgrid-demo" role="img" aria-label="Punktraster-Demo"></div>
+      <span class="spec">Punktraster: radial-gradient 1px · 32px Raster · hier verstärkt dargestellt</span>
+      <div class="glow-demo" role="img" aria-label="Glow-Demo"></div>
+      <span class="spec">Glow: radial-gradient mit --accent-glow · pulse 4s · hinter dem Hero</span>
+    </div>
+
+    <!-- BAUSTEINE -->
+    <div class="section" id="bausteine">
+      <h2>// 05 · Bausteine</h2>
+      <p>
+        Der Baukasten ist klein: fixe Blur-Nav mit <code class="inline">&gt;</code>-Links,
+        Hero mit Tag-Badge, diese Section-Box &mdash; und wenig mehr.
+      </p>
+      <div class="tag-demo">Tag-Badge</div>
+      <p>
+        Sections wie diese sind der Standard-Inhaltsblock: erhabene Fläche,
+        1px-Rahmen, 4px Radius, Syne-Titel in Akzentfarbe. Beim Hover blendet
+        links ein 3px-Akzentbalken ein &mdash; probier es an dieser Box aus.
+      </p>
+      <ul>
+        <li>Radii: 4px Standard, 2px für Tags &mdash; nichts darüber</li>
+        <li>Layoutbreite: 720px, zentriert</li>
+        <li>Einstieg: fadeUp, gestaffelt um 0.05s pro Section</li>
+      </ul>
+    </div>
+
+    <!-- MEHR -->
+    <div class="section" id="mehr">
+      <h2>// 06 · Mehr Informationen</h2>
+      <ul>
+        <li>
+          <a href="https://moellenbeck-holding.de/DESIGN.md">DESIGN.md</a> &mdash;
+          der verbindliche Styleguide: Tokens, Regeln, Rezepte, Do/Don'ts.
+          Auch für Agenten: <code class="inline">curl -s https://moellenbeck-holding.de/DESIGN.md</code>
+        </li>
+        <li>
+          <a href="https://github.com/diemoellies/moellenbeck-holding.github.io">GitHub-Repo</a> &mdash;
+          Quelle der Wahrheit: <code class="inline">style.css</code> ist die
+          Referenz-Implementierung, <code class="inline">assets/</code> enthält Logos und Favicons
+        </li>
+        <li>
+          <a href="index.html">Website</a> &mdash; das lebende Beispiel
+        </li>
+        <li>
+          <a href="https://moellenbeck-digital.io/DESIGN.md">Möllenbeck-Digital DESIGN.md</a> &mdash;
+          das Schwester-Design: gleiches Fundament, Orange-Akzent, drei Schriften
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <a href="impressum.html">Impressum</a>
+    <span class="separator">/</span>
+    <a href="datenschutz.html">Datenschutzerklärung</a>
+  </footer>
+</body>
+</html>
