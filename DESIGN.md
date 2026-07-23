@@ -63,28 +63,28 @@ Nur **zwei** Schriften — das unterscheidet die Holding vom
 Digital-Auftritt. Monospace ist hier die Textschrift, nicht nur Deko:
 
 ```css
---display: 'Syne', sans-serif;              /* Überschriften */
+--display: 'Space Grotesk', sans-serif;              /* Überschriften */
 --mono:    'DM Mono', 'Fira Code', monospace; /* alles andere — auch Fließtext */
 ```
 
 Google-Fonts-Import (Gewichte genau so laden):
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 ```
 
 | Rolle | Schrift | Gewicht | Größe | Besonderheit |
 |---|---|---|---|---|
-| H1 / Hero | Syne | 800 | `clamp(2rem, 8vw, 4.5rem)` | `letter-spacing: -0.03em`, `line-height: 1.05` |
-| Seitentitel | Syne | 800 | `clamp(2rem, 5vw, 3rem)` | `letter-spacing: -0.03em` |
-| H2 in Sections | Syne | 700 | `1rem` | Farbe `--accent` |
-| H3 in Sections | Syne | 600 | `0.9rem` | Farbe `--text` |
+| H1 / Hero | Space Grotesk | 700 | `clamp(2rem, 8vw, 4.5rem)` | `letter-spacing: -0.03em`, `line-height: 1.05` |
+| Seitentitel | Space Grotesk | 700 | `clamp(2rem, 5vw, 3rem)` | `letter-spacing: -0.03em` |
+| H2 in Sections | Space Grotesk | 700 | `1rem` | Farbe `--accent` |
+| H3 in Sections | Space Grotesk | 600 | `0.9rem` | Farbe `--text` |
 | Fließtext | DM Mono | 300 | `0.8–0.85rem` | `line-height: 1.7–1.8` |
 | Nav, Labels, Tags | DM Mono | 400–500 | `0.7–0.75rem` | `letter-spacing: 0.04–0.1em`, Tags `uppercase` |
 
 ### Regeln
 
-- **Syne nur für Überschriften**, nie für Fließtext.
+- **Space Grotesk nur für Überschriften**, nie für Fließtext.
 - **Body ist DM Mono 300** mit großzügigem `line-height: 1.7` — der gesamte
   Auftritt liest sich wie ein gut gesetztes Terminal.
 - Mono-Text bekommt positives Letter-Spacing, Display-Text negatives.
@@ -136,7 +136,7 @@ Link und Präfix `--accent`.
 
 ### Hero
 Linksbündig, `max-width: 720px`, zentriert im Viewport. Aufbau:
-Tag-Badge → Syne-H1 (zweite Zeile in `--accent`) → Mono-Suffix mit
+Tag-Badge → Space-Grotesk-H1 (zweite Zeile in `--accent`) → Mono-Suffix mit
 `//`-Präfix und blinkendem Cursor → Adresse mit 2px-Akzentbalken links.
 Dahinter der pulsierende Glow (500×500px, `opacity: 0.3`).
 
@@ -147,7 +147,7 @@ Hintergrund `--accent-dim`, `1px` Rahmen `rgba(96,165,250,0.25)`,
 
 ### Section (Inhaltsblock)
 `--bg-elevated`, `1px --border`, `4px` Radius, Padding `1.25rem 1.5rem`.
-H2 in Syne 700 `--accent`, Fließtext `0.85rem` muted mit
+H2 in Space Grotesk 700 `--accent`, Fließtext `0.85rem` muted mit
 `line-height: 1.8`, Listen mit `>`-Präfix. Hover blendet den linken
 3px-Akzentbalken ein. Einstieg gestaffelt via `fadeUp` mit
 `nth-child`-Delays (0.35s + 0.05s pro Section).
@@ -212,7 +212,7 @@ Utility-Klassen oder Komponenten nachbauen.
 
 **Do**
 - Dark-only, ein Sky-Blue-Akzent, viel Grau-Raum.
-- DM Mono als Textschrift, Syne nur für Headlines.
+- DM Mono als Textschrift, Space Grotesk nur für Headlines.
 - ASCII statt Icons (`>`, `//`, `<-`).
 - Reduziert bleiben: die Holding zeigt weniger, nicht mehr.
 - Semantisches HTML, funktionsfähig ohne JavaScript.
